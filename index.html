@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viliana — PhD Researcher in Economics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F6F0E4;
+    --cream-dark: #EDE4D0;
+    --ink: #231A0C;
+    --ink-mid: #5C4A30;
+    --ink-light: #8C7558;
+    --terra: #A85C35;
+    --terra-light: #D4956E;
+    --sage: #6B7D5E;
+    --sage-light: #9DAE90;
+    --rule: #D4C4A8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --body: 'Lora', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terra); }
+
+  /* ── LAYOUT HELPERS ── */
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 4vw;
+  }
+  .wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4vw;
+  }
+  section { padding: 5rem 0; }
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5rem 0;
+  }
+
+  /* ── HERO / ABOUT ── */
+  #about {
+    padding-top: 5.5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-grid h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+  }
+  .about-grid h1 em {
+    font-style: italic;
+    color: var(--terra);
+  }
+  .about-grid p {
+    color: var(--ink-mid);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  .about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .btn {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    border: 1px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--terra); border-color: var(--terra); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink-mid);
+    border: 1px solid var(--rule);
+  }
+  .btn-outline:hover { border-color: var(--ink-mid); color: var(--ink); }
+
+  /* profile card */
+  .profile-card {
+    background: var(--cream-dark);
+    border: 1px solid var(--rule);
+    padding: 1.8rem;
+    border-radius: 2px;
+  }
+  .profile-initials {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--terra);
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+  }
+  .profile-card h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+  }
+  .profile-card .role {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    margin-bottom: 1.4rem;
+    line-height: 1.5;
+  }
+  .profile-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+  }
+  .profile-detail span::before {
+    content: attr(data-icon);
+    margin-right: 0.5rem;
+    color: var(--terra-light);
+  }
+
+  /* ── RESEARCH ── */
+  #research {
+    border-bottom: 1px solid var(--rule);
+  }
+  #research h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .paper {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 2.5rem;
+  }
+  .paper:last-child { border-bottom: none; }
+  .paper-year {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    padding-top: 0.25rem;
+    min-width: 3.5rem;
+  }
+  .paper-content h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .paper-meta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    margin-bottom: 0.7rem;
+  }
+  .paper-meta .status {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 2px;
+    background: var(--sage);
+    color: var(--cream);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+  .paper-meta .status.wp {
+    background: var(--terra);
+  }
+  .paper-abstract {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+  .paper-links {
+    display: flex;
+    gap: 1rem;
+  }
+  .paper-links a {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--terra);
+    text-decoration: none;
+    border-bottom: 1px solid var(--terra-light);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  .paper-links a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ── CV ── */
+  #cv {
+    border-bottom: 1px solid var(--rule);
+  }
+  #cv h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+  .cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 4rem;
+  }
+  .cv-section-title {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .cv-entry {
+    margin-bottom: 1.5rem;
+  }
+  .cv-entry-year {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    margin-bottom: 0.15rem;
+  }
+  .cv-entry-title {
+    font-family: var(--body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .cv-entry-sub {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+  }
+  .cv-download {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  /* ── TEACHING ── */
+  #teaching {
+    border-bottom: 1px solid var(--rule);
+  }
+  #teaching h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  #teaching .intro {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+  }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .course-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    border-radius: 2px;
+  }
+  .course-card .course-term {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.4rem;
+  }
+  .course-card h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .course-card .course-role {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--terra);
+    margin-bottom: 0.6rem;
+  }
+  .course-card p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 5rem 0;
+  }
+  #contact .section-label { color: var(--terra-light); }
+  #contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    color: var(--cream);
+  }
+  #contact p {
+    color: #B8A88A;
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    max-width: 600px;
+  }
+  .contact-item {
+    border: 1px solid #3D3020;
+    padding: 1.25rem 1.5rem;
+    border-radius: 2px;
+  }
+  .contact-item .ci-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terra-light);
+    margin-bottom: 0.3rem;
+  }
+  .contact-item a, .contact-item span {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    color: var(--cream-dark);
+    text-decoration: none;
+    word-break: break-word;
+  }
+  .contact-item a:hover { color: var(--terra-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid #3D3020;
+    padding: 1.5rem 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  footer p {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: #6B5A3A;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .profile-card { display: none; }
+    .cv-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .paper { grid-template-columns: 1fr; }
+    .paper-year { margin-bottom: 0.25rem; }
+    nav .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#about" class="nav-name">Viliana Milanova</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="section-label">PhD Researcher · Economics</span>
+        <h1>Viliana<br><em>Milanova</em></h1>
+        <p>
+          I am a PhD candidate in Economics at the <strong>University of Groningen</strong>, where I study how technological developments, such as <strong>robotization</strong> and <strong>artificial intelligence (AI)</strong>, affect the health, wellbeing, and subjective experience of workers.
+        </p>
+        <p>
+          My current projects examine how robot adoption shapes worker health and wellbeing, using cross-sectional survey data from 20 European countries linked to industry-level robot adoption data, and how attributing work to AI influences perceived task meaning and effort, studied through a survey experiment fielded in the United States and the Netherlands.
+        </p>
+        <p>
+          More broadly, my research revolves around a common question: what happens to the human experience of work when disruptive technologies reshape it.
+        </p>
+        <div class="about-links">
+          <a href="#research" class="btn btn-primary">View Research</a>
+        </div>
+      </div>
+      <div>
+        <div class="profile-card">
+          <img src="photo.jpg" alt="Viliana Milanova" style="width:100%;border-radius:2px;margin-bottom:1.2rem;display:block;object-fit:cover;object-position:center top;max-height:260px;">
+          <h2>Viliana Milanova</h2>
+          <div class="role">PhD Candidate<br>Department of Global Economics &amp; Management<br>University of Groningen</div>
+          <div class="profile-detail">
+            <span data-icon="✉">viliana.milanova@rug.nl</span>
+            <span data-icon="📍">Groningen, Netherlands</span>
+            <span data-icon="🎓">Expected graduation: 2027</span>
+            <span data-icon="🔗"><a href="https://www.rug.nl/staff/viliana.milanova/" style="color:var(--ink-mid); text-decoration:none;">University Profile</a></span>
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:0.5rem;color:var(--terra-light)"><path d="M4 6a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><rect x="4" y="11" width="4" height="9"/><path d="M12 11h4v1.5a3.5 3.5 0 0 1 7 0v7.5h-4v-7a1.5 1.5 0 0 0 -3 0v7h-4z"/></svg><a href="https://www.linkedin.com/in/viliana-milanova-0bb707140/" style="color:var(--ink-mid); text-decoration:none;">LinkedIn</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <span class="section-label">Research</span>
+    <h2>Ongoing Work</h2>
+
+    <div class="paper">
+      <div class="paper-content" style="grid-column: 1 / -1;">
+        <h3>When AI Does the Work: Does Attribution Shape Meaning and Effort?</h3>
+        <div class="paper-meta">
+          Viliana Milanova, Milena Nikolova, Feicheng Wang
+          <span class="status wp">Work in Progress</span>
+        </div>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract <span class="toggle-arrow">▸</span></button>
+        <p class="paper-abstract" hidden>
+          This study investigates whether attributing creative output to AI rather than to a human affects individuals' perceptions of task meaning and effort provision. Using preregistered survey experiments in the United States and the Netherlands, participants evaluated identical public health campaign slogans labeled as the work of either an AI system or a human professional. This design isolates the effect of AI attribution while holding the underlying creative content constant. Across both countries, AI attribution does not significantly affect perceived task meaning. In the Dutch sample, however, participants who evaluated AI-labeled slogans were less likely to submit a slogan idea of their own, a behavioral proxy for voluntary effort provision. Respondents also consistently reported lower capability-based trust in the AI-labeled author across both countries, despite evaluating identical content. These results contribute to emerging research on AI, meaning, and work. While AI attribution does not significantly affect perceived meaning in the context of a single evaluative task, prolonged exposure within AI-assisted workflows may plausibly erode meaning and broader worker wellbeing over time, and, as our effort findings suggest, reduce individuals' motivation to contribute. The consistent erosion of capability-based trust under AI attribution further underscores the importance of how organizations introduce AI and frame its contribution to workers.
+        </p>
+        <div style="margin-top: 0.75rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-light);">
+          <span style="color: var(--terra); font-weight: 500;">Presented at:</span> ISQOLS 23rd Annual Conference, Luxembourg (2025) · Research Policy Online Conference for Early Career Researchers (2025) · FEBRI PhD Conference, Groningen (2026)
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-content" style="grid-column: 1 / -1;">
+        <h3>Robots at Work: Implications for Workers' Health and Mental Well-Being</h3>
+        <div class="paper-meta">
+          Viliana Milanova, Milena Nikolova, Feicheng Wang
+          <span class="status wp">Work in Progress</span>
+        </div>
+        <button class="abstract-toggle" onclick="toggleAbstract(this)" aria-expanded="false">Abstract <span class="toggle-arrow">▸</span></button>
+        <p class="paper-abstract" hidden>
+          The adoption of robots in the workplace implies significant changes to work structures and processes. By altering the nature of tasks workers do, robotization can influence both their physical health and mental well-being. We examine this using survey data on self-reported health and task content of workers from 20 European countries, alongside industry-level data on industrial robot adoption. Given the purpose and capabilities of industrial robots, we expect them to take over routine and physically taxing activities, thereby reducing physical strain and potentially enhancing mental well-being as workers shift to more stimulating activities. Overall, we find that robotization indeed reduces routine, physically demanding tasks and decreases the likelihood of reporting health issues such as backaches and neck pain. However, results also suggest that robotization worsens workers' mental health due to a reduction in abstract and social activities. Our findings shed light on the mechanisms through which robots affect the workforce along various health and well-being dimensions, offering insights for the responsible integration of technology in the workplace.
+        </p>
+        <div style="margin-top: 0.75rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-light);">
+          <span style="color: var(--terra); font-weight: 500;">Presented at:</span> ISQOLS Winter Virtual Conference (2025) · FEBRI PhD Conference, Groningen (2025) · CPHEB PhD Brown Bag Seminar, Groningen (2025)
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <span class="section-label">Teaching & Supervision</span>
+    <h2>Teaching</h2>
+    <p class="intro">Prior to and during my PhD, I have taught across several courses in the Faculty of Economics and Business at the University of Groningen, and have supervised bachelor theses.</p>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-term">BSc International Business</div>
+        <h3>Comparative Country Studies</h3>
+        <div class="course-role">Instructor</div>
+        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2022–2024</div>
+      </div>
+      <div class="course-card">
+        <div class="course-term">BSc International Business</div>
+        <h3>Global Political Economy</h3>
+        <div class="course-role">Instructor</div>
+        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2022–2023<br>2024–2026</div>
+      </div>
+      <div class="course-card">
+        <div class="course-term">Honours College · FEB</div>
+        <h3>Honours Professionalisation Seminar: The Future of Work</h3>
+        <div class="course-role">Instructor</div>
+        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2023–2026</div>
+      </div>
+      <div class="course-card">
+        <div class="course-term">MSc International Economics & Sustainable Development</div>
+        <h3>Globalization Debates</h3>
+        <div class="course-role">Instructor</div>
+        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2024–2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Get in Touch</span>
+    <h2>Contact</h2>
+    <p>I am always happy to discuss research, potential collaborations, or questions about my work. The best way to reach me is by email.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="ci-label">Email</div>
+        <a href="mailto:viliana.milanova@rug.nl">viliana.milanova@rug.nl</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Office</div>
+        <span style="font-size:0.82rem; line-height:1.7;">Faculty of Economics and Business<br>Global Economics &amp; Management<br>Nettelbosje 2, 9747 AE Groningen<br>The Netherlands</span>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">University Profile</div>
+        <a href="https://www.rug.nl/staff/viliana.milanova/" target="_blank">rug.nl/staff/viliana.milanova</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/viliana-milanova-0bb707140/" target="_blank">Viliana Milanova</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Viliana Milanova</p>
+  <p>University of Groningen · Faculty of Economics and Business</p>
+</footer>
+
+<style>
+.abstract-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--terra);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.6rem 0 0.5rem;
+}
+.abstract-toggle:hover { color: var(--ink); }
+.toggle-arrow { transition: transform 0.2s; display: inline-block; }
+.abstract-toggle[aria-expanded="true"] .toggle-arrow { transform: rotate(90deg); }
+</style>
+
+<script>
+function toggleAbstract(btn) {
+  const abstract = btn.nextElementSibling;
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  abstract.hidden = expanded;
+}
+</script>
+
+</body>
+</html>
