@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta name="google-site-verification" content="cQx7BzY_-ZnoiWPm1FioKZjbYk2eHN5Dokv4nvEnXPo" />
 <title>Viliana — PhD Researcher in Economics</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%231E1B16'/%3E%3Ctext x='32' y='42' font-family='Georgia, serif' font-size='26' fill='%23F7F5EF' text-anchor='middle'%3EVM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,16 +13,14 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #F6F0E4;
-    --cream-dark: #EDE4D0;
-    --ink: #231A0C;
-    --ink-mid: #5C4A30;
-    --ink-light: #8C7558;
-    --terra: #A85C35;
-    --terra-light: #D4956E;
-    --sage: #6B7D5E;
-    --sage-light: #9DAE90;
-    --rule: #D4C4A8;
+    --cream: #F7F5EF;
+    --cream-dark: #EEEAE0;
+    --ink: #1E1B16;
+    --ink-mid: #4A4640;
+    --ink-light: #837C6E;
+    --terra: #6E2C2C;
+    --terra-light: #9C6058;
+    --rule: #D8D2C2;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --body: 'Lora', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
@@ -117,16 +116,16 @@
   }
   .about-grid h1 {
     font-family: var(--serif);
-    font-size: clamp(2.6rem, 5vw, 4rem);
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-size: clamp(2rem, 3.4vw, 2.6rem);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
     color: var(--ink);
     margin-bottom: 1.4rem;
   }
   .about-grid h1 em {
-    font-style: italic;
-    color: var(--terra);
+    font-style: normal;
+    color: inherit;
   }
   .about-grid p {
     color: var(--ink-mid);
@@ -253,17 +252,16 @@
   }
   .paper-meta .status {
     display: inline-block;
-    padding: 0.15rem 0.6rem;
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    border: 1px solid var(--rule);
     border-radius: 2px;
-    background: var(--sage);
-    color: var(--cream);
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    margin-left: 0.5rem;
+    padding: 0.15rem 0.55rem;
+    margin-left: 0.6rem;
     vertical-align: middle;
-  }
-  .paper-meta .status.wp {
-    background: var(--terra);
   }
   .paper-abstract {
     font-size: 0.92rem;
@@ -274,20 +272,29 @@
   }
   .paper-links {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.9rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .paper-links .link-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-light);
   }
   .paper-links a {
-    font-family: var(--sans);
-    font-size: 0.75rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
+    font-family: var(--body);
+    font-style: italic;
     color: var(--terra);
     text-decoration: none;
-    border-bottom: 1px solid var(--terra-light);
-    padding-bottom: 1px;
-    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
   }
-  .paper-links a:hover { color: var(--ink); border-color: var(--ink); }
+  .paper-links a:hover { border-color: var(--terra); }
+  .paper-links + .paper-links { margin-top: 0.3rem; }
 
   /* ── CV ── */
   #cv {
@@ -355,41 +362,41 @@
     margin-bottom: 2.5rem;
     max-width: 520px;
   }
-  .courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  .teaching-list { }
+  .course-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     gap: 1.5rem;
   }
-  .course-card {
-    background: var(--cream);
-    border: 1px solid var(--rule);
-    padding: 1.5rem;
-    border-radius: 2px;
-  }
-  .course-card .course-term {
-    font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 0.4rem;
-  }
-  .course-card h3 {
+  .course-item:last-child { border-bottom: none; }
+  .course-item h3 {
     font-family: var(--serif);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
   }
-  .course-card .course-role {
+  .course-item h3 a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .course-item h3 a:hover { color: var(--terra); border-color: var(--terra); }
+  .course-meta {
     font-family: var(--sans);
-    font-size: 0.8rem;
-    color: var(--terra);
-    margin-bottom: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-light);
   }
-  .course-card p {
-    font-size: 0.88rem;
-    color: var(--ink-mid);
-    line-height: 1.65;
+  .course-meta .role { color: var(--terra); }
+  .course-years {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    white-space: nowrap;
+    text-align: right;
   }
 
   /* ── CONTACT ── */
@@ -463,6 +470,7 @@
     .contact-grid { grid-template-columns: 1fr; }
     .paper { grid-template-columns: 1fr; }
     .paper-year { margin-bottom: 0.25rem; }
+    .course-item { flex-direction: column; gap: 0.15rem; }
     nav .nav-links { gap: 1rem; }
   }
 </style>
@@ -486,7 +494,7 @@
     <div class="about-grid">
       <div>
         <span class="section-label">PhD Researcher · Economics</span>
-        <h1>Viliana<br><em>Milanova</em></h1>
+        <h1>Viliana <em>Milanova</em></h1>
         <p>
           I am a PhD candidate in Economics at the <strong>University of Groningen</strong>, where I study how technological developments, such as <strong>robotization</strong> and <strong>artificial intelligence (AI)</strong>, affect the health, wellbeing, and subjective experience of workers.
         </p>
@@ -536,10 +544,13 @@
           This paper provides the first causal evidence that merely attributing identical creative work to AI rather than to a human affects how much meaning people derive from a task and how much effort they are willing to contribute. We conducted a pre-registered survey experiment in nationally representative samples from the United States (N = 1,511) and the Netherlands (N = 2,117). Participants evaluated identical public health campaign slogans that were randomly attributed either to an AI system or to a human professional, allowing us to isolate the causal effect of AI attribution while holding the creative output constant. AI attribution reduced perceived task meaning modestly and made participants 13% less likely to contribute a slogan of their own, indicating lower voluntary effort. These findings suggest that AI can influence work not only by changing productivity but also by altering the perceived value of human contribution itself.
         </p>
         <div class="paper-links">
-          <a href="https://docs.iza.org/dp18784.pdf" target="_blank">IZA@LISER Discussion Paper</a>
+          <span class="link-label">Working Paper</span>
+          <a href="https://docs.iza.org/dp18784.pdf" target="_blank">IZA&nbsp;DP&nbsp;18784</a>
+          <a href="https://ideas.repec.org/p/zbw/glodps/1788.html" target="_blank">GLO DP 1788</a>
         </div>
-       <div class="paper-links">
-          <a href="https://ideas.repec.org/p/zbw/glodps/1788.html" target="_blank">GLO Discussion Paper</a>
+        <div class="paper-links">
+          <span class="link-label">In the Media</span>
+          <a href="https://www.brookings.edu/articles/when-people-think-ai-did-the-creative-work-task-meaning-and-effort-decline/" target="_blank">Brookings</a>
         </div>
         <div style="margin-top: 0.75rem; font-family: var(--sans); font-size: 0.8rem; color: var(--ink-light);">
           <span style="color: var(--terra); font-weight: 500;">Presented at:</span> ISQOLS 23rd Annual Conference, Luxembourg (2025) · Research Policy Online Conference for Early Career Researchers (2025) · FEBRI PhD Conference, Groningen (2026)
@@ -575,30 +586,34 @@
     <span class="section-label">Teaching & Supervision</span>
     <h2>Teaching</h2>
     <p class="intro">Prior to and during my PhD, I have taught across several courses in the Faculty of Economics and Business at the University of Groningen, and have supervised bachelor theses.</p>
-    <div class="courses-grid">
-      <div class="course-card">
-        <div class="course-term">BSc International Business</div>
-        <h3>Comparative Country Studies</h3>
-        <div class="course-role">Instructor</div>
-        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2022–2024</div>
+    <div class="teaching-list">
+      <div class="course-item">
+        <div>
+          <h3><a href="https://ocasys.rug.nl/2022-2023/catalog/course/EBB686A05" target="_blank">Comparative Country Studies</a></h3>
+          <div class="course-meta"><span class="role">Instructor</span> · BSc International Business</div>
+        </div>
+        <div class="course-years">2022–2024</div>
       </div>
-      <div class="course-card">
-        <div class="course-term">BSc International Business</div>
-        <h3>Global Political Economy</h3>
-        <div class="course-role">Instructor</div>
-        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2022–2023<br>2024–2026</div>
+      <div class="course-item">
+        <div>
+          <h3><a href="https://ocasys.rug.nl/2024-2025/catalog/course/EBB039B05" target="_blank">Global Political Economy</a></h3>
+          <div class="course-meta"><span class="role">Instructor</span> · BSc International Business</div>
+        </div>
+        <div class="course-years">2022–2023, 2024–2026</div>
       </div>
-      <div class="course-card">
-        <div class="course-term">Honours College · FEB</div>
-        <h3>Honours Professionalisation Seminar: The Future of Work</h3>
-        <div class="course-role">Instructor</div>
-        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2023–2026</div>
+      <div class="course-item">
+        <div>
+          <h3><a href="https://ocasys.rug.nl/current/catalog/course/HCEB30202" target="_blank">Honours Professionalisation Seminar: The Future of Work</a></h3>
+          <div class="course-meta"><span class="role">Instructor</span> · Honours College, FEB</div>
+        </div>
+        <div class="course-years">2023–2026</div>
       </div>
-      <div class="course-card">
-        <div class="course-term">MSc International Economics & Sustainable Development</div>
-        <h3>Globalization Debates</h3>
-        <div class="course-role">Instructor</div>
-        <div style="font-family:var(--sans);font-size:0.75rem;color:var(--ink-light);margin-top:0.5rem;">2024–2026</div>
+      <div class="course-item">
+        <div>
+          <h3><a href="https://ocasys.rug.nl/2025-2026/catalog/course/EBM206A05" target="_blank">Globalization Debates</a></h3>
+          <div class="course-meta"><span class="role">Instructor</span> · MSc International Economics &amp; Sustainable Development</div>
+        </div>
+        <div class="course-years">2024–2026</div>
       </div>
     </div>
   </div>
