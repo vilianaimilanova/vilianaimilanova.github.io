@@ -132,6 +132,7 @@
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.8;
+    text-align: justify;
   }
   .about-links {
     display: flex;
@@ -200,15 +201,29 @@
   .profile-detail {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.55rem;
     font-family: var(--sans);
     font-size: 0.82rem;
     color: var(--ink-mid);
   }
+  .profile-detail span {
+    display: flex;
+    align-items: center;
+  }
   .profile-detail span::before {
     content: attr(data-icon);
-    margin-right: 0.5rem;
+    flex: 0 0 1.4rem;
+    text-align: center;
     color: var(--terra-light);
+  }
+  .profile-detail span:not([data-icon])::before {
+    content: none;
+  }
+  .profile-detail .icon-box {
+    flex: 0 0 1.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* ── RESEARCH ── */
@@ -222,13 +237,22 @@
     margin-bottom: 2.5rem;
   }
   .paper {
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--rule);
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.75rem;
+    background: var(--cream-dark);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--terra);
+    border-radius: 3px;
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 0 2.5rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
   }
-  .paper:last-child { border-bottom: none; }
+  .paper:hover {
+    box-shadow: 0 6px 18px rgba(30,27,22,0.07);
+    border-left-color: var(--terra-light);
+  }
+  .paper:last-child { margin-bottom: 0; }
   .paper-year {
     font-family: var(--sans);
     font-size: 0.8rem;
@@ -490,7 +514,7 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
+  <div class="wide">
     <div class="about-grid">
       <div>
         <span class="section-label">PhD Researcher · Economics</span>
@@ -511,14 +535,13 @@
       <div>
         <div class="profile-card">
           <img src="photo.jpg" alt="Viliana Milanova" style="width:100%;border-radius:2px;margin-bottom:1.2rem;display:block;object-fit:cover;object-position:75% 15%;max-height:260px;">
-          <h2>Viliana Milanova</h2>
           <div class="role">PhD Candidate<br>Department of Global Economics &amp; Management<br>University of Groningen</div>
           <div class="profile-detail">
             <span data-icon="✉">viliana.milanova@rug.nl</span>
             <span data-icon="📍">Groningen, Netherlands</span>
             <span data-icon="🎓">Expected graduation: 2027</span>
             <span data-icon="🔗"><a href="https://www.rug.nl/staff/viliana.milanova/" style="color:var(--ink-mid); text-decoration:none;">University Profile</a></span>
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:0.5rem;color:var(--terra-light)"><path d="M4 6a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><rect x="4" y="11" width="4" height="9"/><path d="M12 11h4v1.5a3.5 3.5 0 0 1 7 0v7.5h-4v-7a1.5 1.5 0 0 0 -3 0v7h-4z"/></svg><a href="https://www.linkedin.com/in/viliana-milanova-0bb707140/" style="color:var(--ink-mid); text-decoration:none;">LinkedIn</a></span>
+            <span><span class="icon-box"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block;color:var(--terra-light)"><path d="M4 6a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"/><rect x="4" y="11" width="4" height="9"/><path d="M12 11h4v1.5a3.5 3.5 0 0 1 7 0v7.5h-4v-7a1.5 1.5 0 0 0 -3 0v7h-4z"/></svg></span><a href="https://www.linkedin.com/in/viliana-milanova-0bb707140/" style="color:var(--ink-mid); text-decoration:none;">LinkedIn</a></span>
           </div>
         </div>
       </div>
@@ -546,7 +569,7 @@
         <div class="paper-links">
           <span class="link-label">Working Paper</span>
           <a href="https://docs.iza.org/dp18784.pdf" target="_blank">IZA&nbsp;DP&nbsp;18784</a>
-          <a href="https://www.econstor.eu/bitstream/10419/342087/1/GLO-DP-1788.pdf" target="_blank">GLO DP 1788</a>
+          <a href="https://ideas.repec.org/p/zbw/glodps/1788.html" target="_blank">GLO DP 1788</a>
         </div>
         <div class="paper-links">
           <span class="link-label">In the Media</span>
@@ -624,7 +647,7 @@
   <div class="container">
     <span class="section-label">Get in Touch</span>
     <h2>Contact</h2>
-    <p>I am always happy to discuss research, potential collaborations, or questions about my work. The best way to reach me is by email.</p>
+    <p>I am always happy to discuss research, potential collaborations, or questions about my work.<br>The best way to reach me is by email.</p>
     <div class="contact-grid">
       <div class="contact-item">
         <div class="ci-label">Email</div>
